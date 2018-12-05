@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package formula1;
+
+message JoyStick {
+    int32 direction = 1;
+    int32 speed = 2;
+}
+
