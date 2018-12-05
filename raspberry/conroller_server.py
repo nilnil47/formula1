@@ -6,6 +6,7 @@ it got the controller information by from the pc by udb socket
 import socket
 import json
 import logging
+import turtle
 
 
 BUFSIZE = 1024
@@ -24,18 +25,37 @@ class JoyStickServer:
 
     def _update(self):
         data, addr = self._sock.recvfrom(self._bufsize)
-        logging.debug(data)
+
 
         joy_dict = json.loads(data.decode())
-        print(joy_dict)
 
     def start(self):
         while True:
             self._update()
 
 
+class VirtualCar:
+    """
+    this class simulate the car using the turtle module
+    """
+    def __init__(self):
+        self.tr = turtle.Turtle()
+
+    def update(self, **kwargs):
+        """
+        this part is with liam
+        :param kwargs:
+        :return:
+        """
+        pass
+
+
+
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     joystickServer = JoyStickServer(BUFSIZE, 1337)
     joystickServer.start()
+
+
+
 
