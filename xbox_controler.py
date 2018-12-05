@@ -46,5 +46,5 @@ class JoystickClient:
             self.update()
 
 if __name__ == '__main__':
-    joystickClient = JoystickClient("127.0.0.1", 1337)
+    joystickClient = JoystickClient("10.0.0.63", 1337)
     joystickClient.start()
