@@ -116,7 +116,7 @@ class Joystick:
     def leftX(self,deadzone=4000):
         self.refresh()
         raw = int(self.reading[3:9])
-        # return self.axisScale(raw,deadzone)
+        # original: return self.axisScale(raw,deadzone)
         return raw
 
     # Left stick Y axis value scaled between -1.0 (down) and 1.0 (up)
@@ -230,9 +230,11 @@ class Joystick:
         return int(self.reading[129:132]) / 255.0
         
     # Right trigger value scaled between 0.0 to 1.0
+    # MODIFIED
     def rightTrigger(self):
         self.refresh()
-        return int(self.reading[136:139]) / 255.0
+        # original: return int(self.reading[136:139]) / 255.0
+        return int(self.reading[136:139])
 
     # Returns tuple containing X and Y axis values for Left stick scaled between -1.0 to 1.0
     # Usage:
